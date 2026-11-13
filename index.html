@@ -27,6 +27,7 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
   <link href="assets/css/hero-menarik.css" rel="stylesheet">
+  <link href="assets/css/kontak.css" rel="stylesheet">
   <link href="assets/css/responsif.css" rel="stylesheet">
 </head>
 
@@ -89,16 +90,27 @@
     </div>
   </div>
 
-  <!-- Tombol ajakan (CTA) -->
-  <div class="hero-cta mt-4 d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
-    <a href="#products" class="btn btn-warning hero-btn-utama"><i class="bi bi-grid-fill me-2"></i>Lihat Menu</a>
-    <a href="https://wa.me/6285851159930" target="_blank" rel="noopener" class="hero-btn-wa"><i class="bi bi-whatsapp me-2"></i>Pesan via WhatsApp</a>
+  <!-- Pilih varian favorit: klik = loncat ke Produk dengan filter terpilih -->
+  <div class="hero-favorit mt-4">
+    <div class="hero-favorit-judul">Mau coba yang mana?</div>
+    <div class="hero-favorit-daftar">
+      <button type="button" class="fav-chip" data-ke-filter="original"><span class="fav-foto fav-original"></span><span class="fav-nama">Original</span></button>
+      <button type="button" class="fav-chip" data-ke-filter="gula-palem"><span class="fav-foto fav-gula-palem"></span><span class="fav-nama">Gula Palem</span></button>
+      <button type="button" class="fav-chip" data-ke-filter="strawberry"><span class="fav-foto fav-strawberry"></span><span class="fav-nama">Strawberry</span></button>
+      <button type="button" class="fav-chip" data-ke-filter="cokelat"><span class="fav-foto fav-cokelat"></span><span class="fav-nama">Cokelat</span></button>
+      <button type="button" class="fav-chip" data-ke-filter="greentea"><span class="fav-foto fav-greentea"></span><span class="fav-nama">Greentea</span></button>
+      <button type="button" class="fav-chip" data-ke-filter="tiramisu"><span class="fav-foto fav-tiramisu"></span><span class="fav-nama">Tiramisu</span></button>
+      <button type="button" class="fav-chip" data-ke-filter="keju"><span class="fav-foto fav-keju"></span><span class="fav-nama">Keju</span></button>
+    </div>
   </div>
 </div>
 
           <!-- Bagian Slideshow Gambar di Sebelah Kanan dengan Panah Navigasi -->
           <div class="col-lg-5 text-center" data-aos="fade-up" data-aos-delay="200">
             <div class="p-3 position-relative" style="background-color: rgba(90, 58, 48, 0.4); border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+              <!-- Hiasan foto melayang (murni dekorasi, gambar diatur di hero-menarik.css) -->
+              <span class="hero-foto-melayang hero-foto-1" aria-hidden="true"></span>
+              <span class="hero-foto-melayang hero-foto-2" aria-hidden="true"></span>
               
               <!-- Swiper Container -->
               <div class="swiper init-swiper">
@@ -730,9 +742,27 @@
       </div>
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row justify-content-center">
+        <div class="row g-4">
+
+          <!-- Panel info kontak (kiri) -->
+          <div class="col-lg-5">
+            <div class="kontak-info">
+              <h3 class="kontak-judul">Mau pesan atau tanya-tanya?</h3>
+              <p class="kontak-sub">Pilih cara yang paling nyaman buat kamu. Kami melayani kebutuhan harian hingga acara spesial.</p>
+
+              <div class="kontak-langkah">
+                <div class="kontak-langkah-judul">Cara memesan</div>
+                <ol>
+                  <li><span class="kontak-no">1</span><span>Pilih varian favoritmu di bagian <a href="#products">Produk Kami</a>.</span></li>
+                  <li><span class="kontak-no">2</span><span>Tulis pesananmu lewat form atau langsung chat WhatsApp.</span></li>
+                  <li><span class="kontak-no">3</span><span>Admin membalas dan mengonfirmasi pesananmu.</span></li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
           <!-- Form Kirim Pesan Langsung ke WhatsApp -->
-          <div class="col-lg-8">
+          <div class="col-lg-7">
             <form id="whatsappForm" class="php-email-form p-4" style="background-color: #532b22; border-radius: 8px;">
               <div class="row gy-4">
                 <div class="col-md-6">
@@ -742,13 +772,13 @@
   <input type="text" id="wa-email" class="form-control" placeholder="No. HP / Kontak Anda" required="">
 </div>
                 <div class="col-md-12">
-                  <input type="text" id="wa-subject" class="form-control" placeholder="Subjek Pesan" required="">
+                  <input type="text" id="wa-subject" class="form-control" placeholder="Cabang (mis. Kotagede)" required="">
                 </div>
                 <div class="col-md-12">
                   <textarea id="wa-message" class="form-control" rows="4" placeholder="Tuliskan pesan atau pesanan Anda..." required=""></textarea>
                 </div>
                 <div class="col-md-12 text-center">
-                  <button type="submit" class="btn btn-warning px-5 py-2 fw-bold">Kirim Pesan ke WhatsApp</button>
+                  <button type="submit" class="btn btn-warning px-5 py-2 fw-bold"><i class="bi bi-whatsapp me-2"></i>Kirim Pesan ke WhatsApp</button>
                 </div>
               </div>
             </form>
@@ -768,7 +798,14 @@
           
           let nomorWA = "6285851159930"; // Nomor WhatsApp tujuan
           
-          let teks = `Halo Admin Pisang Kemul,%0A%0ASaya ingin mengirimkan pesan:%0A- *Nama*: ${nama}%0A- *Email*: ${email}%0A- *Subjek*: ${subjek}%0A- *Pesan*: ${pesan}`;
+          // encodeURIComponent supaya tanda seperti & atau # di dalam isi pesan tidak memutus teks
+          let teks = encodeURIComponent(
+            "Halo Admin Pisang Kemul,\n\nSaya ingin mengirimkan pesan:\n" +
+            "- *Nama*: " + nama + "\n" +
+            "- *No. HP*: " + email + "\n" +
+            "- *Cabang*: " + subjek + "\n" +
+            "- *Pesan*: " + pesan
+          );
           
           window.open(`https://wa.me/${nomorWA}?text=${teks}`, '_blank');
         });
@@ -890,6 +927,20 @@
           keyboardNavigation: elements.length > 1
         });
         lightbox.open();
+      });
+    });
+  });
+</script>
+
+<script>
+  // Klik varian di Beranda -> pilih filter yang sama di Produk, lalu gulir ke sana
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("[data-ke-filter]").forEach(function (chip) {
+      chip.addEventListener("click", function () {
+        var tombol = document.querySelector('.product-filters .filter-btn[data-filter="' + chip.getAttribute("data-ke-filter") + '"]');
+        if (tombol) { tombol.click(); }
+        var tujuan = document.getElementById("products");
+        if (tujuan) { tujuan.scrollIntoView({ behavior: "smooth" }); }
       });
     });
   });

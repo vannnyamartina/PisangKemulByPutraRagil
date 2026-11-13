@@ -3010,3 +3010,419 @@ p, li, h1, h2, h3, h4 { overflow-wrap: break-word; }
   #cabang .cabang-card iframe { height: 160px !important; }
   .section-title h2 { font-size: 23px; }
 }
+/*--------------------------------------------------------------
+# Hero Menarik (Beranda)
+# Dimuat SETELAH main.css (sudah dipasang di index.html).
+# Untuk membatalkan: hapus baris <link> hero-menarik.css di index.html.
+# Elemen di HTML: pilihan varian (hero-favorit, fav-chip), hiasan foto
+# melayang (hero-foto-melayang), dan panah gulir (hero-scroll).
+--------------------------------------------------------------*/
+
+/* 1. Latar: cahaya hangat di belakang slider + pojok kiri atas.
+      Lapisan ::before bawaan template (tint coklat) dipakai ulang. */
+#hero.hero::before {
+  background:
+    radial-gradient(520px 520px at 78% 52%, rgba(254, 194, 61, 0.20), transparent 70%),
+    radial-gradient(700px 380px at 0% 0%, rgba(244, 162, 97, 0.16), transparent 70%),
+    radial-gradient(600px 300px at 100% 100%, rgba(244, 162, 97, 0.10), transparent 70%);
+}
+
+/* 2. Hierarki judul: pesan utama jadi yang terbesar,
+      "Selamat Datang !" jadi sapaan kecil bergradasi.
+      (Hapus blok ini kalau mau kembali ke ukuran lama.) */
+#hero .section-subtitle {
+  display: inline-block;
+  font-size: 1.15rem !important;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  background-image: linear-gradient(90deg, #FEC23D 0%, #f4a261 60%, #ffe29a 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#hero h1 {
+  font-size: clamp(2rem, 4.4vw, 3.3rem) !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.01em;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* 3. Paragraf: rata kiri (tidak renggang), ukuran lebih nyaman */
+#hero .col-lg-6 p {
+  text-align: inherit !important;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  max-width: 540px;
+  margin-left: auto; margin-right: auto;
+}
+@media (min-width: 992px) {
+  #hero .col-lg-6 p { margin-left: 0; margin-right: 0; }
+}
+
+/* 4. Pilih varian favorit: foto bulat yang bisa diklik (loncat ke Produk + filter) */
+#hero .hero-favorit-judul {
+  font-size: 0.8rem; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(254, 194, 61, 0.9);
+  margin-bottom: 14px;
+}
+#hero .hero-favorit-daftar {
+  display: flex; flex-wrap: wrap; gap: 16px 12px;
+  justify-content: center;
+}
+@media (min-width: 992px) { #hero .hero-favorit-daftar { justify-content: flex-start; } }
+#hero .fav-chip {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  width: 70px; padding: 0;
+  background: none; border: 0; cursor: pointer;
+  color: #f8f9fa; font: inherit; font-size: 12px; font-weight: 600; line-height: 1.2;
+}
+#hero .fav-foto {
+  display: block; width: 62px; height: 62px; border-radius: 50%;
+  background-size: cover; background-position: center;
+  box-shadow: 0 0 0 2px rgba(254, 194, 61, 0.75), 0 6px 14px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+#hero .fav-chip:hover .fav-foto,
+#hero .fav-chip:focus-visible .fav-foto {
+  transform: translateY(-6px) scale(1.08);
+  box-shadow: 0 0 0 3px #FEC23D, 0 12px 22px rgba(244, 162, 97, 0.45);
+}
+#hero .fav-chip:hover .fav-nama,
+#hero .fav-chip:focus-visible .fav-nama { color: #FEC23D; }
+#hero .fav-chip:focus-visible { outline: none; }
+#hero .fav-original   { background-image: url("../img/Foto Produk/Ori.jpg"); }
+#hero .fav-gula-palem { background-image: url("../img/Foto Produk/GulaAren.jpg"); }
+#hero .fav-strawberry { background-image: url("../img/Foto Produk/Stroberi.jpg"); }
+#hero .fav-cokelat    { background-image: url("../img/Foto Produk/Coklat.webp"); }
+#hero .fav-greentea   { background-image: url("../img/Foto Produk/Greenteaa1.jpg"); }
+#hero .fav-tiramisu   { background-image: url("../img/Foto Produk/Tiramisu.jpg"); }
+#hero .fav-keju       { background-image: url("../img/Foto Produk/Keju.webp"); }
+
+/* 5. Kartu slider: bingkai emas, cahaya, dan melayang pelan */
+#hero .col-lg-5 { position: relative; }
+#hero .col-lg-5::before {            /* lingkaran cahaya di belakang kartu */
+  content: "";
+  position: absolute; z-index: -1;
+  width: 420px; height: 420px; max-width: 90vw;
+  left: 50%; top: 50%; transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(254, 194, 61, 0.30), transparent 65%);
+  filter: blur(8px);
+}
+#hero .col-lg-5 > .p-3 {
+  border-radius: 22px !important;
+  background-image: linear-gradient(150deg, rgba(254, 194, 61, 0.16), rgba(244, 162, 97, 0.04));
+  box-shadow:
+    0 0 0 2px rgba(254, 194, 61, 0.55),
+    0 24px 60px rgba(0, 0, 0, 0.40),
+    0 0 80px rgba(244, 162, 97, 0.22) !important;
+  animation: kemulMelayang 6s ease-in-out infinite;
+}
+@keyframes kemulMelayang {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+
+/* 5b. Hiasan foto melayang di sudut kartu slider */
+#hero .hero-foto-melayang {
+  position: absolute; z-index: 2;
+  border-radius: 50%;
+  background-size: cover; background-position: center;
+  box-shadow: 0 0 0 3px #FEC23D, 0 12px 28px rgba(0, 0, 0, 0.40);
+  animation: kemulGoyang 5s ease-in-out infinite;
+}
+#hero .hero-foto-1 { width: 96px; height: 96px; top: -30px; right: -26px;
+                     background-image: url("../img/Foto Produk/KejuCoklat.jpg"); }
+#hero .hero-foto-2 { width: 78px; height: 78px; bottom: -22px; left: -24px;
+                     background-image: url("../img/Foto Produk/Stroberi.jpg"); animation-delay: -2.5s; }
+@keyframes kemulGoyang {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-8px) rotate(5deg); }
+}
+@media (max-width: 575px) {
+  #hero .hero-foto-1 { width: 64px; height: 64px; top: -18px; right: -6px; }
+  #hero .hero-foto-2 { width: 52px; height: 52px; bottom: -14px; left: -6px; }
+}
+
+/* 6. Teks kiri muncul bertahap saat halaman dibuka */
+@keyframes kemulNaik {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: none; }
+}
+#hero .col-lg-6 > * { animation: kemulNaik 0.7s ease both; }
+#hero .col-lg-6 > :nth-child(2) { animation-delay: 0.10s; }
+#hero .col-lg-6 > :nth-child(3) { animation-delay: 0.20s; }
+#hero .col-lg-6 > :nth-child(4) { animation-delay: 0.30s; }
+#hero .col-lg-6 > :nth-child(5) { animation-delay: 0.40s; }
+
+/* 7. Panah gulir di dasar hero */
+#hero .hero-scroll {
+  position: absolute; z-index: 3;
+  left: 50%; bottom: 22px; transform: translateX(-50%);
+  font-size: 1.6rem; line-height: 1;
+  color: rgba(254, 194, 61, 0.85);
+  animation: kemulLoncat 1.8s ease-in-out infinite;
+}
+@keyframes kemulLoncat {
+  0%, 100% { transform: translate(-50%, 0); }
+  50%      { transform: translate(-50%, 8px); }
+}
+@media (max-width: 991px) { #hero .hero-scroll { display: none; } }
+
+/* Hormati pengguna yang mematikan animasi di perangkatnya */
+@media (prefers-reduced-motion: reduce) {
+  #hero .col-lg-5 > .p-3, #hero .col-lg-6 > *, #hero .hero-scroll, #hero .hero-foto-melayang { animation: none; }
+}
+/*--------------------------------------------------------------
+# Responsif: HP, tablet, dan layar kecil
+# Dimuat TERAKHIR (setelah main.css dan hero-menarik.css).
+# Di layar desktop lebar (>= 1400px) tampilan tidak berubah.
+# Breakpoint: 1399, 1199 (menu hamburger), 991 (tablet), 767 (HP), 575 (HP kecil)
+--------------------------------------------------------------*/
+
+/* 0. Variabel warna menu. Di main.css baris 33, 36, 37 kurang titik koma,
+      sehingga warna hover, latar menu HP, dan link menu HP tidak terbaca.
+      Di sini nilainya didefinisikan ulang. Di desktop hasilnya sama dengan sekarang. */
+:root {
+  --nav-color: #FEC23D;
+  --nav-hover-color: #f8f9fa;                 /* menu aktif/hover di desktop: putih */
+  --nav-mobile-background-color: #532b22;     /* panel menu HP: coklat tema */
+  --nav-dropdown-background-color: #532b22;
+  --nav-dropdown-color: #f8f9fa;              /* link di menu HP: putih */
+  --nav-dropdown-hover-color: #FEC23D;        /* link aktif di menu HP: kuning */
+}
+
+/* 1. Aturan dasar anti-pecah */
+html { -webkit-text-size-adjust: 100%; }
+p, li, h1, h2, h3, h4 { overflow-wrap: break-word; }
+
+/* 2. Pop-up foto produk (GLightbox).
+      Layar lebar/tablet/HP mendatar: kotak maksimal 500px, selalu muat di layar. */
+.glightbox-container .gslide-media {
+  width: min(500px, 92vw, 78vh) !important;
+  height: min(500px, 92vw, 78vh) !important;
+}
+/* HP tegak: foto selebar layar (tidak sempit), judul tepat di bawah foto,
+   dan panah kiri/kanan tampil sebagai petunjuk bahwa foto bisa digeser. */
+@media (max-width: 767px) {
+  .glightbox-container .gslide-media {
+    width: 100vw !important;
+    height: min(125vw, 70vh) !important;
+    border-radius: 0;
+  }
+  .glightbox-container .gslide-image img { border-radius: 0; }
+  .glightbox-mobile .glightbox-container .gslide-description {
+    position: static !important;
+    flex: 0 0 auto !important;
+    padding: 14px 16px 0 !important;
+    text-align: center;
+  }
+  .glightbox-mobile .glightbox-container .gslide-title { font-size: 1.05em; font-weight: 600; margin: 0; }
+  .glightbox-mobile .glightbox-container .gslide-desc { margin-top: 4px; font-size: 0.85em; }
+  .glightbox-container .gprev, .glightbox-container .gnext {
+    display: flex !important;
+    top: 38%;
+    background-color: rgba(0, 0, 0, 0.45);
+  }
+  .glightbox-container .gprev { left: 8px; }
+  .glightbox-container .gnext { right: 8px; }
+  .lb-satu .glightbox-container .gprev,
+  .lb-satu .glightbox-container .gnext { display: none !important; }
+}
+
+/* 3. Layar touch: efek hover tidak boleh "menempel" setelah diketuk */
+@media (hover: none) {
+  .custom-prod-card:hover,
+  #cabang .cabang-card:hover,
+  #team .org-node:hover { transform: none; }
+  #hero .fav-chip:hover .fav-foto { transform: none; }
+  .custom-prod-card:hover .prod-img-box img { transform: none; }
+  /* kartu komitmen: hanya mau dibalik lewat ketukan (kelas .flipped), supaya bisa dibalik lagi */
+  #about .komitmen-flip:hover .komitmen-inner { transform: none; }
+  #about .komitmen-flip.flipped .komitmen-inner { transform: rotateY(180deg); }
+}
+
+/* 4. Header lebih ringkas agar tidak pecah dua baris di laptop kecil */
+@media (max-width: 1399px) {
+  .header .logo h1 { font-size: 22px; }
+}
+@media (min-width: 1200px) and (max-width: 1399px) {   /* laptop kecil: menu dirapatkan agar muat satu baris */
+  .navmenu a, .navmenu a:focus { padding: 18px 9px; font-size: 15px; }
+}
+@media (max-width: 1199px) {
+  .header { padding: 12px 0; }
+  .header .logo img { max-height: 34px; }
+}
+@media (max-width: 575px) {
+  .header { padding: 10px 0; }
+  .header .logo h1 { font-size: 17px; line-height: 1.2; }
+  .header .logo img { max-height: 30px; margin-right: 6px; }
+  .mobile-nav-toggle { font-size: 26px; }
+}
+
+/* 5. Tablet dan di bawahnya: jarak antar-section lebih rapat */
+@media (max-width: 991px) {
+  section, .section { padding-top: 64px; padding-bottom: 64px; }
+  #contact { padding-top: 64px; margin-top: 24px; }
+  .section-title { padding-bottom: 36px; }
+  .section-title h2 { font-size: 26px; }
+  #hero.hero { padding: 56px 0 64px !important; min-height: auto; }
+}
+
+/* 6. HP */
+@media (max-width: 767px) {
+  /* section kuning */
+  #about, #team, .section-yellow { margin: 18px 10px; border-radius: 26px; }
+  #about .content { padding: 22px 18px; }
+  #about .komitmen-flip { height: 140px; }
+  #about .komitmen-judul { margin-top: 28px; }
+
+  /* produk */
+  .product-filters { gap: 0.4rem !important; margin-bottom: 1.75rem !important; }
+  .product-filters .filter-btn { padding: 8px 14px; font-size: 13px; }
+  .prod-img-box { height: 230px; }
+
+  /* struktur organisasi */
+  #team .org-node { padding: 12px 18px; }
+  #team .org-detail { margin-top: 24px; }
+
+  /* kontak */
+  #contact .php-email-form { padding: 22px 16px !important; }
+  #contact .php-email-form button[type=submit] { width: 100%; }
+
+  /* footer */
+  .footer .footer-top { padding-top: 32px; }
+  .footer { padding-bottom: 24px; }
+  .footer .copyright { padding-top: 16px; padding-bottom: 16px; }
+}
+
+/* 7. HP kecil */
+@media (max-width: 575px) {
+  #hero .hero-favorit-daftar { gap: 14px 8px; }
+  #hero .fav-chip { width: 64px; }
+  #hero .fav-foto { width: 54px; height: 54px; }
+  #cabang .cabang-card { padding: 20px 18px; }
+  #cabang .cabang-card iframe { height: 160px !important; }
+  .section-title h2 { font-size: 23px; }
+}
+//*--------------------------------------------------------------
+# Bagian "Hubungi Kami": cara memesan (kiri), form WhatsApp (kanan)
+# Dimuat setelah hero-menarik.css dan sebelum responsif.css.
+# Sosial media ada di footer, cabang di section Cabang (tidak diulang di sini).
+--------------------------------------------------------------*/
+
+/* Form mengisi tinggi yang sama dengan panel info, isinya di tengah */
+#contact .php-email-form {
+  display: flex; flex-direction: column; justify-content: center;
+}
+
+#contact .kontak-info {
+  height: 100%;
+  display: flex; flex-direction: column; justify-content: center; gap: 14px;
+}
+#contact .kontak-judul {
+  margin: 0;
+  font-size: 1.6rem; font-weight: 700; line-height: 1.25;
+  color: #3b1d16 !important;
+}
+#contact .kontak-sub {
+  margin: 0 0 4px;
+  font-size: 0.95rem; line-height: 1.6;
+  color: #5a3a30 !important;
+}
+
+/* Kartu gelap yang serasi dengan kotak form */
+#contact .kontak-langkah {
+  background-color: #532b22;
+  background-image: linear-gradient(150deg, #6a382d 0%, #532b22 60%, #40211a 100%);
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(59, 29, 22, 0.25);
+  color: #f8f9fa;
+}
+
+/* Cara memesan */
+#contact .kontak-langkah { padding: 20px 22px; }
+#contact .kontak-langkah-judul { margin-bottom: 12px; font-weight: 700; color: #ffffff; }
+#contact .kontak-langkah ol { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; }
+#contact .kontak-langkah li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.92rem; line-height: 1.5; color: #e0d0c9; }
+#contact .kontak-no {
+  flex: 0 0 26px; width: 26px; height: 26px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  font-size: 0.8rem; font-weight: 700;
+  background-image: linear-gradient(135deg, #FEC23D, #f4a261);
+  color: #3b1d16;
+}
+#contact .kontak-langkah a { color: #FEC23D; font-weight: 600; text-decoration: underline; }
+
+@media (hover: none) {
+  
+}
+@media (max-width: 575px) {
+  #contact .kontak-judul { font-size: 1.35rem; }
+}
+
+/* Judul bagian: lebih hidup, dengan garis aksen di bawahnya */
+#contact .section-title { padding-bottom: 44px; }
+#contact .section-title h2 {
+  display: inline-block; position: relative;
+  margin-bottom: 18px !important;
+  padding-bottom: 14px;
+  font-size: clamp(1.7rem, 3.4vw, 2.4rem) !important;
+  font-weight: 800 !important;
+  letter-spacing: 3px;
+  color: #3b1d16 !important;
+}
+#contact .section-title h2::after {
+  content: ""; position: absolute; left: 50%; bottom: 0;
+  width: 72px; height: 5px; transform: translateX(-50%);
+  border-radius: 5px;
+  background-image: linear-gradient(90deg, #532b22, #f4a261, #532b22);
+}
+#contact .section-title p {
+  display: block; max-width: 520px; margin: 0 auto;
+  font-size: 1.02rem; font-weight: 500; line-height: 1.6;
+  color: #5a3a30 !important;
+}
+
+/* Form: sudut membulat, kolom lebih lega, tidak kaku */
+#contact form#whatsappForm.php-email-form {
+  padding: 34px 32px !important;
+  border-radius: 20px !important;
+  background-image: linear-gradient(150deg, #6a382d 0%, #532b22 55%, #40211a 100%);
+  box-shadow: 0 10px 28px rgba(59, 29, 22, 0.3);
+}
+#contact .php-email-form input[type=text],
+#contact .php-email-form textarea {
+  padding: 13px 18px;
+  font-size: 0.95rem;
+  color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(254, 194, 61, 0.28) !important;
+  border-radius: 12px !important;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+#contact .php-email-form input[type=text]::placeholder,
+#contact .php-email-form textarea::placeholder { color: rgba(240, 230, 226, 0.6) !important; }
+#contact .php-email-form input[type=text]:focus,
+#contact .php-email-form textarea:focus {
+  background-color: rgba(255, 255, 255, 0.13) !important;
+  border-color: #FEC23D !important;
+  box-shadow: 0 0 0 4px rgba(254, 194, 61, 0.2) !important;
+}
+#contact .php-email-form textarea { resize: vertical; min-height: 130px; }
+#contact .php-email-form button[type=submit] {
+  width: 100%;
+  padding: 13px 24px !important;
+  border: 0; border-radius: 50px !important;
+  font-size: 1rem;
+  color: #3b1d16 !important;
+  background-image: linear-gradient(135deg, #FEC23D, #f4a261) !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+#contact .php-email-form button[type=submit]:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35); }
+@media (max-width: 575px) {
+  #contact form#whatsappForm.php-email-form { padding: 24px 18px !important; }
+  #contact .section-title { padding-bottom: 32px; }
+}
