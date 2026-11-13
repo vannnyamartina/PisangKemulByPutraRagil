@@ -3433,3 +3433,9 @@ p, li, h1, h2, h3, h4 { overflow-wrap: break-word; }
   #contact form#whatsappForm.php-email-form { padding: 24px 18px !important; }
   #contact .section-title { padding-bottom: 32px; }
 }
+/* Paragraf Beranda: rata kiri-kanan (justify) */
+#hero .col-lg-6 p {
+  text-align: justify !important;
+  text-justify: inter-word;
+  hyphens: auto;
+}
