@@ -3410,6 +3410,13 @@ p, li, h1, h2, h3, h4 { overflow-wrap: break-word; }
   border-color: #FEC23D !important;
   box-shadow: 0 0 0 4px rgba(254, 194, 61, 0.2) !important;
 }
+/* Isian otomatis Chrome: jangan jadi putih, tetap serasi dengan form */
+#contact .php-email-form input:-webkit-autofill {
+  -webkit-text-fill-color: #ffffff;
+  caret-color: #ffffff;
+  box-shadow: 0 0 0 1000px #6a382d inset !important;
+  transition: background-color 9999s ease-in-out 0s;
+}
 #contact .php-email-form textarea { resize: vertical; min-height: 130px; }
 #contact .php-email-form button[type=submit] {
   width: 100%;

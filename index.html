@@ -808,6 +808,9 @@
           );
           
           window.open(`https://wa.me/${nomorWA}?text=${teks}`, '_blank');
+
+          // Pesan sudah terbawa ke WhatsApp, jadi kosongkan form di halaman ini
+          this.reset();
         });
       </script>
     </section>
