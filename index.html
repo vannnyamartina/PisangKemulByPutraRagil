@@ -26,9 +26,6 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
-  <link href="assets/css/hero-menarik.css" rel="stylesheet">
-  <link href="assets/css/kontak.css" rel="stylesheet">
-  <link href="assets/css/responsif.css" rel="stylesheet">
 </head>
 
 <body class="index-page">
@@ -175,48 +172,100 @@
       </div>
 
       <div class="container">
-        <div class="row gy-4 align-items-start">
+        <!-- Angka singkat (menghitung naik saat terlihat) -->
+        <div class="sjr-statistik" data-aos="fade-up">
+          <div class="sjr-stat"><strong data-hitung="2019" data-awal="2000">2019</strong><span>Mulai berdiri</span></div>
+          <div class="sjr-stat"><strong data-hitung="5">5</strong><span>Cabang</span></div>
+          <div class="sjr-stat"><strong data-hitung="17">17</strong><span>Varian rasa</span></div>
+          <div class="sjr-stat"><strong data-hitung="2" data-akhiran="×">2×</strong><span>Digoreng dua kali</span></div>
+        </div>
 
-          <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100" style="text-align: justify;">
-            <h3>Berawal dari Usaha Kuliner Keluarga</h3>
-            <p>
-              <strong>Pisang Kemul By Putra Ragil</strong> didirikan oleh Putra Ragil pada tahun 2019 di Yogyakarta. Berawal dari dapur sederhana, kami terus berinovasi mengolah pisang menjadi hidangan lezat berbalut adonan renyah, sambil menjaga cemilan khas tradisional tetap dikenal.
-            </p>
-            <p>
-              Hingga saat ini, produk kami telah menjadi salah satu pilihan cemilan favorit masyarakat. Kami terus menghadirkan varian rasa baru tanpa menghilangkan cita rasa khas buatan Putra Ragil.
-            </p>
+        <!-- Tab sejarah: klik untuk berganti topik -->
+        <div class="sjr-tab" role="tablist" aria-label="Sejarah Pisang Kemul">
+          <button type="button" role="tab" class="sjr-tombol aktif" id="sjr-t1" aria-controls="sjr-p1" aria-selected="true"><i class="bi bi-flag-fill"></i> Awal Merintis</button>
+          <button type="button" role="tab" class="sjr-tombol" id="sjr-t2" aria-controls="sjr-p2" aria-selected="false" tabindex="-1"><i class="bi bi-chat-quote-fill"></i> Makna Nama</button>
+          <button type="button" role="tab" class="sjr-tombol" id="sjr-t3" aria-controls="sjr-p3" aria-selected="false" tabindex="-1"><i class="bi bi-fire"></i> Proses Pembuatan</button>
+          <button type="button" role="tab" class="sjr-tombol" id="sjr-t4" aria-controls="sjr-p4" aria-selected="false" tabindex="-1"><i class="bi bi-geo-alt-fill"></i> Varian &amp; Cabang</button>
+        </div>
+
+        <div class="sjr-wadah">
+
+          <!-- 1. Awal merintis -->
+          <div class="sjr-panel" id="sjr-p1" role="tabpanel" aria-labelledby="sjr-t1">
+            <div class="sjr-dua">
+              <div>
+                <h3>Dirintis oleh Pengusaha Muda Yogyakarta</h3>
+                <p><strong>Pisang Kemul By Putra Ragil</strong> dirintis sejak tahun <strong>2019</strong> di Yogyakarta dan pemilik bernama <strong>Yudha Pamungkas</strong>. Usaha ini mengangkat kembali jajanan pisang goreng tradisional dengan teknik penggorengan ganda, penyajian menggunakan besek bambu tradisional, serta paduan <em>topping</em> modern yang melimpah.</p>
+                <p>Pemilik ingin menghadirkan jajanan tradisional dengan kemasan dan rasa yang lebih kekinian.</p>
+              </div>
+              <ol class="sjr-garis">
+                <li><span class="sjr-titik"></span><strong>2019</strong><p>Pisang Kemul mulai dirintis di Yogyakarta.</p></li>
+                <li><span class="sjr-titik"></span><strong>Berkembang dari skala rumahan</strong><p>Usaha tumbuh dan kini hadir di Yogyakarta, Sleman, dan Bantul.</p></li>
+                <li><span class="sjr-titik"></span><strong>Hingga kini</strong><p>Terus menghadirkan varian rasa baru tanpa menghilangkan cita rasa khasnya.</p></li>
+              </ol>
+            </div>
           </div>
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-
-            <details class="tentang-item">
-              <summary>Apa arti nama "Kemul"? <i class="bi bi-chevron-down"></i></summary>
-              <div class="tentang-isi" style="text-align: justify;">
-                <p>"Kemul" berasal dari bahasa Jawa yang berarti diselimuti. Pisangnya memang diselimuti adonan kremes yang tebal dan kriuk, lalu disajikan hangat.</p>
+          <!-- 2. Makna nama -->
+          <div class="sjr-panel" id="sjr-p2" role="tabpanel" aria-labelledby="sjr-t2" hidden>
+            <div class="sjr-dua">
+              <div>
+                <div class="sjr-kata">Kemul</div>
+                <div class="sjr-arti">dalam bahasa Jawa berarti <strong>selimut</strong></div>
+                <p>Nama ini menggambarkan tampilan pisang yang terselimuti tebal oleh remahan tepung krispi yang gurih, sebelum diberi aneka taburan manis.</p>
               </div>
-            </details>
-
-            <details class="tentang-item">
-              <summary>Apa yang membuat kami berbeda? <i class="bi bi-chevron-down"></i></summary>
-              <div class="tentang-isi" style="text-align: justify;">
-                <p>Pisang gorengnya krispi dengan topping yang melimpah, mulai dari gula palem, keju, cokelat, tiramisu, sampai green tea.</p>
-                <p>Kami juga memakai kemasan besek bambu khas tradisional, jadi cocok untuk camilan di rumah maupun oleh-oleh dari Yogyakarta.</p>
+              <div class="sjr-lapis" aria-label="Lapisan Pisang Kemul">
+                <div class="sjr-lapis-3"><span>Taburan manis</span>
+                  <div class="sjr-lapis-2"><span>Remahan krispi gurih</span>
+                    <div class="sjr-lapis-1"><span>Pisang</span></div>
+                  </div>
+                </div>
               </div>
-            </details>
+            </div>
+          </div>
 
-            <details class="tentang-item">
-              <summary>Di mana saja cabang kami? <i class="bi bi-chevron-down"></i></summary>
-              <div class="tentang-isi" style="text-align: justify;">
-                <p>Sejak berdiri, usaha ini berkembang di wilayah Yogyakarta, Sleman, dan Bantul. Beberapa cabang resminya antara lain:</p>
-                <ul>
-                  <li><i class="bi bi-geo-alt"></i> <a href="#cabang-kotagede" class="cabang-link" data-cabang="cabang-kotagede">Kotagede</a></li>
-                  <li><i class="bi bi-geo-alt"></i> <a href="#cabang-condongcatur" class="cabang-link" data-cabang="cabang-condongcatur">Condongcatur</a></li>
-                  <li><i class="bi bi-geo-alt"></i> <a href="#cabang-parangtritis" class="cabang-link" data-cabang="cabang-parangtritis">Jl. Parangtritis</a></li>
-                  <li><i class="bi bi-geo-alt"></i> <a href="#cabang-tamantirto" class="cabang-link" data-cabang="cabang-tamantirto">Tamantirto</a></li>
-                  <li><i class="bi bi-geo-alt"></i> <a href="#cabang-seturan" class="cabang-link" data-cabang="cabang-seturan">Seturan</a></li>
-                </ul>
+          <!-- 3. Proses pembuatan -->
+          <div class="sjr-panel" id="sjr-p3" role="tabpanel" aria-labelledby="sjr-t3" hidden>
+            <h3>Digoreng Dua Kali untuk Tekstur Garing</h3>
+            <p>Klik tiap langkah untuk melihat ceritanya.</p>
+            <div class="sjr-langkah">
+              <button type="button" class="sjr-no aktif" data-judul="Pilih pisang" data-isi="Bahan utamanya pisang tanduk yang matang atau setengah matang, lalu dipotong-potong menjadi beberapa bagian."><b>1</b><span>Pilih pisang</span></button>
+              <button type="button" class="sjr-no" data-judul="Goreng pertama" data-isi="Pisang berbalut adonan tepung digoreng pada tahap pertama untuk membentuk tekstur garing yang tahan lama."><b>2</b><span>Goreng pertama</span></button>
+              <button type="button" class="sjr-no" data-judul="Goreng kedua" data-isi="Pada tahap kedua, adonan kremes diguyurkan sambil digoreng sehingga pisang terselimuti secara merata."><b>3</b><span>Goreng kedua</span></button>
+              <button type="button" class="sjr-no" data-judul="Beri topping" data-isi="Pisang diberi aneka topping seperti gula palem, cokelat, keju, tiramisu, dan green tea, bahkan kombinasi dua topping."><b>4</b><span>Beri topping</span></button>
+              <button type="button" class="sjr-no" data-judul="Dikemas besek" data-isi="Disajikan dalam wadah besek bambu khas tradisional yang menjaga kebersihan dan memberi aroma tradisional yang khas."><b>5</b><span>Dikemas besek</span></button>
+            </div>
+            <div class="sjr-detail" aria-live="polite"><strong>Pilih pisang</strong><p>Bahan utamanya pisang tanduk yang matang atau setengah matang, lalu dipotong-potong menjadi beberapa bagian.</p></div>
+          </div>
+
+          <!-- 4. Varian & cabang -->
+          <div class="sjr-panel" id="sjr-p4" role="tabpanel" aria-labelledby="sjr-t4" hidden>
+            <div class="sjr-dua">
+              <div>
+                <h3>Pilihan Rasa Favorit</h3>
+                <p>Rasa favoritnya meliputi Original, Gula Palem, Cokelat, Keju, Green Tea, Tiramisu, dan Strawberry, bahkan kombinasi dua <em>topping</em>. Klik salah satu untuk melihat fotonya.</p>
+                <div class="sjr-chip-daftar">
+                  <button type="button" class="sjr-chip" data-ke-filter="original">Original</button>
+                  <button type="button" class="sjr-chip" data-ke-filter="gula-palem">Gula Palem</button>
+                  <button type="button" class="sjr-chip" data-ke-filter="strawberry">Strawberry</button>
+                  <button type="button" class="sjr-chip" data-ke-filter="cokelat">Cokelat</button>
+                  <button type="button" class="sjr-chip" data-ke-filter="greentea">Greentea</button>
+                  <button type="button" class="sjr-chip" data-ke-filter="tiramisu">Tiramisu</button>
+                  <button type="button" class="sjr-chip" data-ke-filter="keju">Keju</button>
+                </div>
               </div>
-            </details>
+              <div>
+                <h3>Cabang di Yogyakarta</h3>
+                <p>Cabang kami tersebar di wilayah Yogyakarta, Sleman, dan Bantul. Klik untuk melihat lokasinya.</p>
+                <div class="sjr-chip-daftar">
+                  <a href="#cabang-kotagede" class="sjr-chip cabang-link" data-cabang="cabang-kotagede"><i class="bi bi-geo-alt-fill"></i> Kotagede</a>
+                  <a href="#cabang-condongcatur" class="sjr-chip cabang-link" data-cabang="cabang-condongcatur"><i class="bi bi-geo-alt-fill"></i> Condongcatur</a>
+                  <a href="#cabang-parangtritis" class="sjr-chip cabang-link" data-cabang="cabang-parangtritis"><i class="bi bi-geo-alt-fill"></i> Jl. Parangtritis</a>
+                  <a href="#cabang-tamantirto" class="sjr-chip cabang-link" data-cabang="cabang-tamantirto"><i class="bi bi-geo-alt-fill"></i> Tamantirto</a>
+                  <a href="#cabang-seturan" class="sjr-chip cabang-link" data-cabang="cabang-seturan"><i class="bi bi-geo-alt-fill"></i> Seturan</a>
+                </div>
+              </div>
+            </div>
           </div>
 
         </div>
@@ -253,12 +302,67 @@
       </div>
 
       <script>
-        // Pastikan semua poin tertutup saat halaman dibuka / di-reload
-        function tutupSemuaTentang() {
-          document.querySelectorAll("#about .tentang-item").forEach(function (d) { d.removeAttribute("open"); });
-        }
-        tutupSemuaTentang();
-        window.addEventListener("pageshow", tutupSemuaTentang);
+        // ===== Tab Sejarah =====
+        (function () {
+          var tombol = Array.prototype.slice.call(document.querySelectorAll("#about .sjr-tombol"));
+          function pilih(i, fokus) {
+            tombol.forEach(function (t, n) {
+              var aktif = n === i;
+              t.classList.toggle("aktif", aktif);
+              t.setAttribute("aria-selected", aktif ? "true" : "false");
+              t.setAttribute("tabindex", aktif ? "0" : "-1");
+              document.getElementById(t.getAttribute("aria-controls")).hidden = !aktif;
+            });
+            if (fokus) { tombol[i].focus(); }
+            if (window.AOS) { setTimeout(function () { AOS.refreshHard(); }, 60); }
+          }
+          tombol.forEach(function (t, i) {
+            t.addEventListener("click", function () { pilih(i, false); });
+            t.addEventListener("keydown", function (e) {
+              if (e.key === "ArrowRight") { e.preventDefault(); pilih((i + 1) % tombol.length, true); }
+              if (e.key === "ArrowLeft")  { e.preventDefault(); pilih((i - 1 + tombol.length) % tombol.length, true); }
+            });
+          });
+
+          // Langkah pembuatan: klik angka, keterangan berganti
+          var langkah = document.querySelectorAll("#about .sjr-no");
+          var kotak = document.querySelector("#about .sjr-detail");
+          langkah.forEach(function (b) {
+            b.addEventListener("click", function () {
+              langkah.forEach(function (x) { x.classList.remove("aktif"); });
+              b.classList.add("aktif");
+              kotak.innerHTML = "<strong></strong><p></p>";
+              kotak.querySelector("strong").textContent = b.getAttribute("data-judul");
+              kotak.querySelector("p").textContent = b.getAttribute("data-isi");
+            });
+          });
+
+          // Angka menghitung naik saat bagian ini terlihat
+          var baris = document.querySelector("#about .sjr-statistik");
+          var angka = document.querySelectorAll("#about .sjr-stat strong");
+          var kurangGerak = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          if (baris && "IntersectionObserver" in window && !kurangGerak) {
+            angka.forEach(function (a) { a.textContent = (a.getAttribute("data-awal") || "0") + (a.getAttribute("data-akhiran") || ""); });
+            var io = new IntersectionObserver(function (daftar) {
+              if (!daftar[0].isIntersecting) { return; }
+              io.disconnect();
+              var mulai = null;
+              function jalan(t) {
+                if (mulai === null) { mulai = t; }
+                var p = Math.min((t - mulai) / 1200, 1);
+                var e = 1 - Math.pow(1 - p, 3);
+                angka.forEach(function (a) {
+                  var dari = parseInt(a.getAttribute("data-awal") || "0", 10);
+                  var ke = parseInt(a.getAttribute("data-hitung"), 10);
+                  a.textContent = Math.round(dari + (ke - dari) * e) + (a.getAttribute("data-akhiran") || "");
+                });
+                if (p < 1) { requestAnimationFrame(jalan); }
+              }
+              requestAnimationFrame(jalan);
+            }, { threshold: 0.4 });
+            io.observe(baris);
+          }
+        })();
 
         // Kartu balik: ketuk untuk layar sentuh
         document.querySelectorAll("#about .komitmen-flip").forEach(function (card) {
@@ -514,7 +618,7 @@
           <!-- Pemilik -->
           <button type="button" class="org-node" data-role="pemilik">
             <span class="org-icon"><i class="bi bi-person-badge"></i></span>
-            <span class="org-text"><strong>Pemilik</strong><span>Putra Ragil</span></span>
+            <span class="org-text"><strong>Pemilik</strong><span>Yudha Pamungkas</span></span>
           </button>
 
           <div class="org-stem"></div>
@@ -561,7 +665,7 @@
         (function () {
           var data = {
             pemilik: {
-              icon: "bi-person-badge", judul: "Pemilik", sub: "Putra Ragil",
+              icon: "bi-person-badge", judul: "Pemilik", sub: "Yudha Pamungkas",
               isi: "Mengawasi jalannya persediaan, pengiriman, dan penjualan di semua cabang, sekaligus mengelola data utama usaha.",
               tugas: [
                 "Memantau data pengiriman bahan baku",
