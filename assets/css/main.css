@@ -3305,7 +3305,7 @@ p, li, h1, h2, h3, h4 { overflow-wrap: break-word; }
   #cabang .cabang-card iframe { height: 160px !important; }
   .section-title h2 { font-size: 23px; }
 }
-//*--------------------------------------------------------------
+/*--------------------------------------------------------------
 # Bagian "Hubungi Kami": cara memesan (kiri), form WhatsApp (kanan)
 # Dimuat setelah hero-menarik.css dan sebelum responsif.css.
 # Sosial media ada di footer, cabang di section Cabang (tidak diulang di sini).
